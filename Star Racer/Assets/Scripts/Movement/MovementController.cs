@@ -12,8 +12,6 @@ namespace StarRacer.Movement
         [SerializeField]
         private float pitchRate = 1f;
         [SerializeField]
-        private float roll = 45f;
-        [SerializeField]
         private float yawRate = 1f;
 
         private Rigidbody myRigidBody;
@@ -47,7 +45,6 @@ namespace StarRacer.Movement
         {
             var rotation = transform.rotation.eulerAngles;
             rotation += Vector3.up * (turnRight ? yawRate : -yawRate);
-            rotation = new Vector3(rotation.x, rotation.y, (turnRight ? roll : -roll));
             transform.rotation = Quaternion.Euler(rotation);
         }
     }

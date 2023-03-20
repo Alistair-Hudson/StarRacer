@@ -25,10 +25,14 @@ namespace StarRacer.Movement
             {
                 PitchBack();
             }
+            //else
+            //{
+            //    ResetModelPitch();
+            //}
 
             if (Input.GetKey(KeyCode.D))
             {
-                TurnLeft();
+                TurnRight();
             }
             else if (Input.GetKey(KeyCode.A))
             {
@@ -36,8 +40,9 @@ namespace StarRacer.Movement
             }
             else
             {
-                ResetRoll();
+                ResetModelRoll();
             }
+
         }
     }
 }
