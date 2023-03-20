@@ -12,7 +12,7 @@ namespace StarRacer.Movement
         [SerializeField]
         private float pitchRate = 1f;
         [SerializeField]
-        private float rollRate = 1f;
+        private float roll = 45f;
         [SerializeField]
         private float yawRate = 1f;
 
@@ -24,7 +24,7 @@ namespace StarRacer.Movement
             var inputController = GetComponent<InputController>();
             inputController.Accelerate += Accelerate;
             inputController.Pitch += Pitch;
-            inputController.Roll += Roll;
+            inputController.Turn += Turn;
         }
 
         private void Accelerate(bool acclerate)
@@ -43,10 +43,11 @@ namespace StarRacer.Movement
             transform.rotation = Quaternion.Euler(rotation);
         }
 
-        private void Roll(bool roolRight)
+        private void Turn(bool turnRight)
         {
             var rotation = transform.rotation.eulerAngles;
-            rotation += Vector3.forward * (roolRight ? rollRate : -rollRate);
+            rotation += Vector3.up * (turnRight ? yawRate : -yawRate);
+            rotation = new Vector3(rotation.x, rotation.y, (turnRight ? roll : -roll));
             transform.rotation = Quaternion.Euler(rotation);
         }
     }

@@ -9,7 +9,7 @@ namespace StarRacer.Movement
     {
         public event Action<bool> Accelerate;
         public event Action<bool> Pitch;
-        public event Action<bool> Roll;
+        public event Action<bool> Turn;
 
         protected void Acclerate()
         {
@@ -21,14 +21,14 @@ namespace StarRacer.Movement
             Accelerate.Invoke(false);
         }
 
-        protected void RollLeft()
+        protected void TurnRight()
         {
-            Roll.Invoke(true);
+            Turn.Invoke(true);
         }
 
-        protected void RollRight()
+        protected void TurnLeft()
         {
-            Roll.Invoke(false);
+            Turn.Invoke(false);
         }
 
         protected void PitchForward()
@@ -39,6 +39,11 @@ namespace StarRacer.Movement
         protected void PitchBack()
         {
             Pitch.Invoke(false);
+        }
+
+        protected void ResetRoll()
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
         }
     }
 }

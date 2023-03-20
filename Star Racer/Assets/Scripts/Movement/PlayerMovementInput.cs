@@ -21,17 +21,22 @@ namespace StarRacer.Movement
             {
                 PitchForward();
             }
-            if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S))
             {
                 PitchBack();
             }
+
             if (Input.GetKey(KeyCode.D))
             {
-                RollRight();
+                TurnLeft();
             }
-            if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A))
             {
-                RollLeft();
+                TurnLeft();
+            }
+            else
+            {
+                ResetRoll();
             }
         }
     }
