@@ -31,15 +31,17 @@ namespace StarRacer.Navigation
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(transform.position, 0.1f);
 
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(transform.position, transform.forward);
-
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(transform.position, waypointRadius);
             
-            if (nextWaypoint == null) return;
+            if (nextWaypoint != null)
+            {
+                transform.LookAt(nextWaypoint.transform);
+                Gizmos.DrawLine(transform.position, nextWaypoint.transform.position);
+            }
 
-            Gizmos.DrawLine(transform.position, nextWaypoint.transform.position);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, transform.forward);
         }
     }
 }
