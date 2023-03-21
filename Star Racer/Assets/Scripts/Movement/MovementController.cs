@@ -16,6 +16,7 @@ namespace StarRacer.Movement
         [SerializeField]
         private float maxSpeed = 50f;
 
+        private float currentForwardSpeed = 0;
         private Rigidbody myRigidBody;
 
         private void Awake()
@@ -29,10 +30,9 @@ namespace StarRacer.Movement
 
         private void Accelerate(bool acclerate)
         {
-            var currentVelocity = myRigidBody.velocity.z;
-            currentVelocity += acclerate ? acceleration : -acceleration;
-            currentVelocity = Mathf.Clamp(currentVelocity, 0, maxSpeed);
-            myRigidBody.velocity = Vector3.forward * currentVelocity;
+            currentForwardSpeed += acclerate ? acceleration : -acceleration;
+            currentForwardSpeed = Mathf.Clamp(currentForwardSpeed, 0, maxSpeed);
+            myRigidBody.velocity = transform.forward * currentForwardSpeed;
         }
 
         private void Pitch(bool pitchForward)
