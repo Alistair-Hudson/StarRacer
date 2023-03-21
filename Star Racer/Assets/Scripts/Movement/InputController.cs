@@ -13,6 +13,8 @@ namespace StarRacer.Movement
         private float modelRoll = 45f;
         [SerializeField]
         private float modelPitch = 45f;
+        [SerializeField]
+        private float rollRate = 1f;
 
         public event Action<bool> Accelerate;
         public event Action<bool> Pitch;
@@ -31,14 +33,16 @@ namespace StarRacer.Movement
         protected void CallTurnRight()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
-            modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, -modelRoll));
+            float eulerZ = Mathf.Clamp(eulers.z - rollRate, 360 - modelRoll, 360);
+            modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, eulerZ));
             Turn.Invoke(true);
         }
 
         protected void CallTurnLeft()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
-            modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, modelRoll));
+            float eulerZ = Mathf.Clamp(eulers.z + rollRate, 0, modelRoll);
+            modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, eulerZ));
             Turn.Invoke(false);
         }
 
@@ -59,7 +63,16 @@ namespace StarRacer.Movement
         protected void ResetModelRoll()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
-            modelTransform.localRotation = Quaternion.Euler(eulers.x, eulers.y, 0);
+            var eulerZ = eulers.z;
+            if (eulerZ < 0 || eulerZ > 180)
+            {
+                eulerZ += rollRate;
+            }
+            else if (eulerZ > 0)
+            {
+                eulerZ -= rollRate;
+            }
+            modelTransform.localRotation = Quaternion.Euler(eulers.x, eulers.y, eulerZ);
         }
 
         protected void ResetModelPitch()
