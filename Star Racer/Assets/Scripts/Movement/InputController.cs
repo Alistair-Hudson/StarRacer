@@ -18,38 +18,38 @@ namespace StarRacer.Movement
         public event Action<bool> Pitch;
         public event Action<bool> Turn;
 
-        protected void Acclerate()
+        protected void CallAccelerate()
         {
             Accelerate.Invoke(true);
         }
 
-        protected void Decelerate()
+        protected void CallDecelerate()
         {
             Accelerate.Invoke(false);
         }
 
-        protected void TurnRight()
+        protected void CallTurnRight()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
             modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, -modelRoll));
             Turn.Invoke(true);
         }
 
-        protected void TurnLeft()
+        protected void CallTurnLeft()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
             modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, modelRoll));
             Turn.Invoke(false);
         }
 
-        protected void PitchForward()
+        protected void CallPitchDown()
         {
             //var eulers = modelTransform.localRotation.eulerAngles;
             //modelTransform.rotation = Quaternion.Euler(new Vector3(modelPitch, eulers.y, eulers.z));
             Pitch.Invoke(true);
         }
 
-        protected void PitchBack()
+        protected void CallPitchUp()
         {
             //var eulers = modelTransform.localRotation.eulerAngles;
             //modelTransform.localRotation = Quaternion.Euler(new Vector3(-modelPitch, eulers.y, eulers.z));

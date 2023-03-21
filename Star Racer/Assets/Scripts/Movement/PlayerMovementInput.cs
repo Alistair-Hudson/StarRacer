@@ -10,20 +10,20 @@ namespace StarRacer.Movement
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Acclerate();
+                CallAccelerate();
             }
             else
             {
-                Decelerate();
+                CallDecelerate();
             }
 
             if (Input.GetKey(KeyCode.W))
             {
-                PitchForward();
+                CallPitchDown();
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                PitchBack();
+                CallPitchUp();
             }
             //else
             //{
@@ -32,11 +32,11 @@ namespace StarRacer.Movement
 
             if (Input.GetKey(KeyCode.D))
             {
-                TurnRight();
+                CallTurnRight();
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                TurnLeft();
+                CallTurnLeft();
             }
             else
             {
