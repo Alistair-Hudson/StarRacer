@@ -39,10 +39,7 @@ namespace StarRacer.Navigation
             
             if (nextWaypoint == null) return;
 
-            Gizmos.DrawLine(transform.position + transform.up * waypointRadius, nextWaypoint.transform.position + nextWaypoint.transform.up * nextWaypoint.WaypointRadius);
-            Gizmos.DrawLine(transform.position - transform.up * waypointRadius, nextWaypoint.transform.position - nextWaypoint.transform.up * nextWaypoint.WaypointRadius);
-            Gizmos.DrawLine(transform.position - transform.right * waypointRadius, nextWaypoint.transform.position - nextWaypoint.transform.right * nextWaypoint.WaypointRadius);
-            Gizmos.DrawLine(transform.position + transform.right * waypointRadius, nextWaypoint.transform.position + nextWaypoint.transform.right * nextWaypoint.WaypointRadius);
+            Gizmos.DrawLine(transform.position, nextWaypoint.transform.position);
         }
     }
 }
