@@ -33,7 +33,8 @@ namespace StarRacer.Movement
         protected void CallTurnRight()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
-            float eulerZ = Mathf.Clamp(eulers.z - rollRate, 360 - modelRoll, 360);
+            float eulerZ = eulers.z <= 0 ? 360 - eulers.z : eulers.z;
+            eulerZ = Mathf.Clamp(eulerZ - rollRate, 360 - modelRoll, 360);
             modelTransform.localRotation = Quaternion.Euler(new Vector3(eulers.x, eulers.y, eulerZ));
             Turn.Invoke(true);
         }
