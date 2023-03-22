@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6026005361085493816}
   - component: {fileID: 8360509278375581723}
   m_Layer: 0
-  m_Name: Waypoint
+  m_Name: WaypointBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
