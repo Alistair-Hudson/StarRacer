@@ -752,15 +752,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: 063639b609f4cd34fa20de714b53498d, type: 3}
       propertyPath: yawRate
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: 063639b609f4cd34fa20de714b53498d, type: 3}
       propertyPath: pitchRate
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: 063639b609f4cd34fa20de714b53498d, type: 3}
       propertyPath: acceleration
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4265506391523847369, guid: 063639b609f4cd34fa20de714b53498d, type: 3}
       propertyPath: m_RootOrder
@@ -1520,15 +1520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: e6b59de57605f734a9834d0ec3150435, type: 3}
       propertyPath: yawRate
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: e6b59de57605f734a9834d0ec3150435, type: 3}
       propertyPath: pitchRate
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4070823128854271249, guid: e6b59de57605f734a9834d0ec3150435, type: 3}
       propertyPath: acceleration
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4265506391523847369, guid: e6b59de57605f734a9834d0ec3150435, type: 3}
       propertyPath: m_RootOrder

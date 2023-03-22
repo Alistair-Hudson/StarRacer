@@ -93,7 +93,8 @@ MonoBehaviour:
   modelTransform: {fileID: 1011675687676695665}
   modelRoll: 45
   modelPitch: 45
-  minDistanceToTarget: 0.1
+  rollRate: 1
+  minDistanceToTarget: 5
   deccelerationChance: 0.5
   targetWaypoint: {fileID: 0}
 --- !u!1 &7258862605008064474
