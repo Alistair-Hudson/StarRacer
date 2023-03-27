@@ -81,6 +81,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5598252496135789225}
     m_Modifications:
+    - target: {fileID: 1958838033301204198, guid: 50cabe5fd411b20418a67d9e40f00d81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2315264414768136083, guid: 50cabe5fd411b20418a67d9e40f00d81, type: 3}
       propertyPath: m_Name
       value: WarpGate_04
@@ -128,6 +132,10 @@ PrefabInstance:
     - target: {fileID: 3128497726991050025, guid: 50cabe5fd411b20418a67d9e40f00d81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739983185668797742, guid: 50cabe5fd411b20418a67d9e40f00d81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
