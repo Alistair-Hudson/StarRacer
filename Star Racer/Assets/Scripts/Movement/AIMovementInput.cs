@@ -15,10 +15,10 @@ namespace StarRacer.Movement
         public Waypoint targetWaypoint;
         private Vector3 target;
 
-        private void Awake()
+        private void Start()
         {
             targetWaypoint = FindObjectOfType<StartPoint>();
-            target = targetWaypoint.GetPoint(Random.Range(-1f, 1), Random.Range(-1f, 1), Random.Range(-1f, 1));
+            target = new Vector3(transform.position.x, transform.position.y, targetWaypoint.transform.position.z);
         }
 
         private void Update()
@@ -30,33 +30,8 @@ namespace StarRacer.Movement
             }
 
             transform.LookAt(target);
-            //TODO: find a means of making this work, so the turning looks more natural
-            /*Vector2 targetDir = targetWaypoint.transform.position - transform.position;
-            float yawAngle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
-            if (yawAngle < 0)
-            {
-                TurnLeft();
-            }
-            else if (yawAngle > 0)
-            {
-                TurnRight();
-            }
-            else
-            {
-                ResetModelRoll();
-            }
 
-            float pitchAngle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.right);
-            if (pitchAngle < 0)
-            {
-                PitchDown();
-            }
-            else if (pitchAngle > 0)
-            {
-                PitchUp();
-            }*/
-
-            //Accelerate towards target call random deccelerate
+            //Accelerate towards target, call random deccelerate
             if (Random.Range(0f, 1f) < deccelerationChance)
             {
                 CallDecelerate();
