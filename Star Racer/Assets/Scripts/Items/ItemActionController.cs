@@ -10,7 +10,7 @@ namespace StarRacer.Items
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Item Obtained!!");
+            Debug.Log($"{gameObject.name} obtained an Item!!");
         }
 
         public void UseItem()
