@@ -64,16 +64,20 @@ namespace StarRacer.Movement
         protected void ResetModelRoll()
         {
             var eulers = modelTransform.localRotation.eulerAngles;
-            var eulerZ = eulers.z;
-            if (eulerZ < 0 || eulerZ > 180)
-            {
-                eulerZ += rollRate;
-            }
-            else if (eulerZ > 0)
-            {
-                eulerZ -= rollRate;
-            }
-            modelTransform.localRotation = Quaternion.Euler(eulers.x, eulers.y, eulerZ);
+            //var eulerZ = eulers.z;
+            //if (eulerZ < -Mathf.Epsilon || eulerZ > 180 - Mathf.Epsilon)
+            //{
+            //    eulerZ += rollRate;
+            //}
+            //else if (eulerZ > Mathf.Epsilon)
+            //{
+            //    eulerZ -= rollRate;
+            //}
+            //else
+            //{
+            //    eulerZ = 0;
+            //}
+            modelTransform.localRotation = Quaternion.Euler(eulers.x, eulers.y, 0);
         }
 
         protected void ResetModelPitch()
